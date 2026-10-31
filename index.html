@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>FileFlow — Smart File Converter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+</head>
+
+<body>
+    <header class="top"><a class="brand" ><span class="logo">⇄</span>File<span>Flow</span></a>
+        <nav><a href="#converter">Converter</a><a href="#formats">Formats</a><a href="#how">How it works</a></nav><a
+            class="navbtn" href="#converter">Convert a file ↗</a>
+    </header>
+    <main>
+        <section class="hero">
+            <div>
+                <div class="eyebrow">● YOUR FILES, YOUR FORMAT</div>
+                <h1>Every format.<br><em>One simple flow.</em></h1>
+                <p class="lead">Convert documents, spreadsheets, presentations and data files in a clean, easy-to-use
+                    workspace.</p><a class="primary" href="#converter">Start converting <b>→</b></a>
+                <div class="trust">♧ Temporary file cleanup <span>⚡ Fast conversion</span></div>
+            </div>
+            <div class="art">
+                <div class="orbit"></div>
+                <div class="core"><span>⇄</span><b>Convert</b><small>One easy workspace</small></div>
+                <div class="tile t1"><i class="red">PDF</i><b>PDF</b><small>Document</small></div>
+                <div class="tile t2"><i class="green">XLS</i><b>XLSX</b><small>Spreadsheet</small></div>
+                <div class="tile t3"><i class="blue">DOC</i><b>DOCX</b><small>Word file</small></div>
+                <div class="tile t4"><i class="purple">{ }</i><b>CSV / PY</b><small>Data & code</small></div>
+            </div>
+        </section>
+        <section class="section" id="converter">
+            <div class="heading">
+                <div>
+                    <div class="eyebrow">THE CONVERTER</div>
+                    <h2>What would you like to convert?</h2>
+                    <p>Upload a file, choose your output, and download the result.</p>
+                </div>
+                <div class="safe">♧ Temporary processing</div>
+            </div>
+            <div class="card">
+                <div class="steps"><span>① Upload your file</span><span>② Choose format</span><span>③ Download</span>
+                </div>
+                <form id="form"><label class="drop" id="drop" for="file">
+                        <div class="upload">⇧</div><strong id="title">Drop your file here</strong>
+                        <p id="subtitle">or <b>browse files</b> from your computer</p><small>CSV, PY, XLSX, JSON, DOCX,
+                            PPTX, PDF, TXT and images · Max 25 MB</small><input type="file" id="file" name="file" hidden
+                            required>
+                        <div class="chosen" id="chosen" hidden><span id="filename"></span><button type="button"
+                                id="remove">×</button></div>
+                    </label>
+                    <div class="controls">
+                        <div class="field"><label for="target">Convert to</label><select id="target" name="target">{%
+                                for x in outputs %}<option value="{{x}}">{{ {'csv':'CSV (.csv)','py':'Python data
+                                    (.py)','xlsx':'Excel workbook (.xlsx)','json':'JSON (.json)','txt':'Plain text
+                                    (.txt)','md':'Markdown (.md)','pdf':'PDF (.pdf)','docx':'Word document
+                                    (.docx)','pptx':'PowerPoint (.pptx)'}[x] }}</option>{% endfor %}</select><small
+                                id="hint">Choose the output format you need.</small></div><button class="primary submit"
+                            id="submit">⇄ &nbsp; Convert file</button>
+                    </div>
+                    <div id="status" class="status" role="status" hidden></div>
+                </form>
+                <div class="privacy">♧ Files are processed temporarily and automatically cleaned up after conversion.
+                </div>
+            </div>
+        </section>
+        <section class="section formats" id="formats">
+            <div class="eyebrow">BUILT FOR EVERYDAY WORK</div>
+            <h2>Formats that work together</h2>
+            <p>Popular file types for study, office work and data tasks.</p>
+            <div class="grid">
+                <article><i class="green">▤</i>
+                    <h3>CSV & Excel</h3>
+                    <p>Move tabular data between CSV, XLSX, JSON and Python data files.</p><small>CSV · XLSX ·
+                        JSON</small>
+                </article>
+                <article><i class="purple">{ }</i>
+                    <h3>Python data</h3>
+                    <p>Generate Python data files from CSV or safely convert supported literal data to CSV.</p><small>PY
+                        · CSV</small>
+                </article>
+                <article><i class="red">▧</i>
+                    <h3>PDF documents</h3>
+                    <p>Create PDFs from text and images, or extract selectable PDF text.</p><small>PDF · TXT</small>
+                </article>
+                <article><i class="blue">▤</i>
+                    <h3>Office files</h3>
+                    <p>Extract text from Word and PowerPoint or create DOCX and PPTX from text.</p><small>DOCX ·
+                        PPTX</small>
+                </article>
+            </div>
+            <p class="note">ⓘ Office-to-PDF conversions require LibreOffice. PDF layout may not be preserved perfectly
+                when extracting text.</p>
+        </section>
+        <section class="how section" id="how">
+            <div>
+                <div class="eyebrow">SIMPLE BY DESIGN</div>
+                <h2>Three steps.<br><em>Less busywork.</em></h2>
+                <p>No complicated menus. Just the format you have and the format you need.</p>
+            </div>
+            <div class="howlist">
+                <article><span>01</span>
+                    <div>
+                        <h3>Upload your file</h3>
+                        <p>Choose a file or drag it into the upload area.</p>
+                    </div>
+                </article>
+                <article><span>02</span>
+                    <div>
+                        <h3>Choose an output</h3>
+                        <p>Select the format you need. Unsupported combinations are explained.</p>
+                    </div>
+                </article>
+                <article><span>03</span>
+                    <div>
+                        <h3>Download the result</h3>
+                        <p>Save the converted file directly to your computer.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer><a class="brand" href="#"><span class="logo">⇄</span>File<span>Flow</span></a><small>Convert files. Keep
+            moving.</small><small>Built with Flask · HTML · CSS · JavaScript</small></footer>
+    <script src="{{ url_for('static',filename='script.js') }}"></script>
+</body>
+
+</html>
